@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- The link preview card, 1200 x 630 (../og.jpg). Built by build.sh from the Habits workspace: the plate is the
+     design kit's resting plate (../../design/worlds/devices/kit/plate.js), and the sand keeps clear of the words. -->
+<html lang="en"><head><meta charset="utf-8"><title>Sandsong card</title>
+<style>
+@font-face{font-family:'Jost';src:url('../fonts/jost-latin-300-500.woff') format('woff');font-weight:300 500}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#0a0c0f}
+canvas{position:absolute;inset:0;display:block}
+.words{position:absolute;left:96px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:22px;
+  font-family:'Jost',sans-serif;color:#e6ebf3;text-shadow:0 1px 0 rgba(255,255,255,.06),0 -1px 0 rgba(0,0,0,.6)}
+.caps{margin:0;font:500 19px/1 'Jost';letter-spacing:.22em;text-transform:uppercase;color:#9da9ba}
+h1{margin:0;font:300 150px/.9 'Jost';letter-spacing:-.02em}
+.line{margin:0;font:400 44px/1.15 'Jost';color:#c9d1dd;letter-spacing:-.003em}
+</style></head>
+<body><canvas id="c"></canvas>
+<div class="words"><p class="caps">For iPhone, iPad and Apple Watch</p><h1>Sandsong</h1><p class="line">A habit tracker drawn in sand.</p></div>
+<script src="../../design/worlds/devices/kit/plate.js"></script>
+<script>
+const W = 1200, H = 630, c = document.getElementById('c');
+c.style.width = W + 'px'; c.style.height = H + 'px';
+Plate.still(c, { w: W, h: H, dpr: 1, hour: 9, seed: 11, grains: 26000,
+  zones: [{ x: 60, y: 150, w: 690, h: 330, r: 60, pad: 70 }],
+  habits: [{ key: 'read', slot: 0, votes: 14 }, { key: 'walk', slot: 1, votes: 13 }, { key: 'screens', slot: 2, votes: 11 }] });
+</script></body></html>

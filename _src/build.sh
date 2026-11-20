@@ -1,8 +1,9 @@
 #!/bin/sh
-# Rebuilds every generated file of the site. Run from site/, inside the Habits workspace (the plate is drawn by
-# ../design/worlds/devices/kit/plate.js). Needs Google Chrome, python3 with Pillow and numpy; fonts need fontTools.
+# Rebuilds every generated file of the site, from this repo alone: the plate is drawn by _src/vendor/plate.js (a copy
+# of the design kit) and the font is subset from _src/vendor/Jost[wght].ttf (OFL, _src/vendor/OFL.txt). Needs Google
+# Chrome, python3 with Pillow and numpy; fonts need fontTools.
 #   sh _src/build.sh            images and icons
-#   sh _src/build.sh fonts      also re-subset Jost from the OFL source files (path in $JOST, default ../fonts-src)
+#   sh _src/build.sh fonts      also re-subset Jost from _src/vendor/Jost[wght].ttf
 set -eu
 cd "$(dirname "$0")/.."
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -23,5 +24,5 @@ print('og.jpg img/plate-2160.webp img/plate-1080.webp')
 PY
 python3 -P _src/ground.py
 python3 -P _src/icons.py
-if [ "${1:-}" = fonts ]; then python3 -P _src/mkfont.py "${JOST:-../fonts-src}/Jost[wght].ttf" fonts/jost-latin-300-500.woff; fi
+if [ "${1:-}" = fonts ]; then python3 -P _src/mkfont.py "_src/vendor/Jost[wght].ttf" fonts/jost-latin-300-500.woff; fi
 rm -rf "$TMP"

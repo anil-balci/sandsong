@@ -1,10 +1,10 @@
 <!doctype html>
 <!-- Renders one resting plate (the design kit's Plate.still) to fill the window, for the hero image and the card.
-     Built by _src/build.sh from the Habits workspace; the kit lives at ../../design/worlds/devices/kit/plate.js. -->
+     Built by _src/build.sh; the design kit is copied in vendor/plate.js (from design/worlds/devices/kit/plate.js in the Habits workspace). -->
 <html lang="en"><head><meta charset="utf-8"><title>plate still</title>
 <style>html,body{margin:0;background:#0a0c0f;overflow:hidden}canvas{display:block}</style></head>
 <body><canvas id="c"></canvas>
-<script src="../../design/worlds/devices/kit/plate.js"></script>
+<script src="vendor/plate.js"></script>
 <script>
 const q = new URLSearchParams(location.search);
 const w = +q.get('w') || innerWidth, h = +q.get('h') || innerHeight;
